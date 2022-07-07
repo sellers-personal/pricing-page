@@ -71,8 +71,8 @@ $(".pricing-main-tab").on("click", function() {
             $("#sales-slider").show()
     }
 }), 
-pricesMonthlyStarter = [16,25,39,60,79,105,132,180,"Contact Us","Contact Us","Contact Us","Contact Us","Contact Us"],
-pricesMonthlyStarter_was = [20,31,49,75,99,131,165,225, "Contact Us","Contact Us","Contact Us","Contact Us","Contact Us"],
+pricesMonthlyStarter = [16,25,39,60,79,105,132,"Contact Us","Contact Us","Contact Us","Contact Us","Contact Us","Contact Us"],
+pricesMonthlyStarter_was = [20,31,49,75,99,131,165,"Contact Us", "Contact Us","Contact Us","Contact Us","Contact Us","Contact Us"],
 pricesMonthlyProfesional = [20,38,52,79,113,140,172,"Contact Us","Contact Us","Contact Us","Contact Us","Contact Us","Contact Us"],
 pricesMonthlyProfesional_was = [25,48,65,99,141,175,215,"Contact Us","Contact Us","Contact Us","Contact Us","Contact Us","Contact Us"],
 pricesMonthlyAgency = [25,47,65,100,140,172,220,"Contact Us","Contact Us","Contact Us","Contact Us","Contact Us","Contact Us"],
