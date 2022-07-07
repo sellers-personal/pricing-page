@@ -9,22 +9,7 @@ var slider_value = 0,
 		amount_flag_margin = '-62px'; // left-margin of the "amount flag"
 // end Slider settings -----
 
-// Prices -----
-var pricesMonthlyStarter = [16,25,39,60,79,105,132,180,"Contact Us","Contact Us","Contact Us","Contact Us","Contact Us"],
-pricesMonthlyStarter_was = [20,31,49,75,99,131,165,225, "Contact Us","Contact Us","Contact Us","Contact Us","Contact Us"],
-pricesMonthlyProfesional = [20,38,52,79,113,140,172,"Contact Us","Contact Us","Contact Us","Contact Us","Contact Us","Contact Us"],
-pricesMonthlyProfesional_was = [25,48,65,99,141,175,215,"Contact Us","Contact Us","Contact Us","Contact Us","Contact Us","Contact Us"],
-pricesMonthlyAgency = [25,47,65,100,140,172,220,"Contact Us","Contact Us","Contact Us","Contact Us","Contact Us","Contact Us"],
-pricesMonthlyAgency_was = [31,59,81,125,175,215,275,"Contact Us","Contact Us","Contact Us","Contact Us","Contact Us","Contact Us"],
-pricesAnnualyStarter = [12,19,29,45,59,79,99,"Contact Us", "Contact Us", "Contact Us", "Contact Us", "Contact Us"],
-pricesAnnualyStarter_was = [20,32,48,75,98,132,165,"Contact Us", "Contact Us", "Contact Us", "Contact Us", "Contact Us"],
-pricesAnnualyProfesional = [15,29,39,59,85,105,129,"Contact Us", "Contact Us", "Contact Us", "Contact Us", "Contact Us"],
-pricesAnnualyProfesional_was = [25 ,48 ,65 ,98 ,142 ,175 ,215 ,"Contact Us", "Contact Us", "Contact Us", "Contact Us", "Contact Us"],
-pricesAnnualyAgency = [19,35,49,75,105,129,165, "Contact Us",  "Contact Us",  "Contact Us",   "Contact Us",  "Contact Us", "Contact Us"],
-pricesAnnualyAgency_was = [32 ,58 ,82 ,125 ,175 ,215 ,275 , "Contact Us",  "Contact Us",  "Contact Us",   "Contact Us",  "Contact Us", "Contact Us"],
-// end Prices -----
-
-sliderAmountMap = [1e3, 3e3, 5e3, 1e4, 15e3, 2e4, 3e4, 5e4, 1e5, 3e5, 5e5, 1e6, 1000001],
+var pricesMonthlyStarter, pricesMonthlyStarter_was, pricesMonthlyProfesional, pricesMonthlyProfesional_was, pricesMonthlyAgency, pricesMonthlyAgency_was, pricesAnnualyStarter, pricesAnnualyStarter_was, pricesAnnualyProfesional, pricesAnnualyProfesional_was, pricesAnnualyAgency, pricesAnnualyAgency_was, sliderAmountMap = [1e3, 3e3, 5e3, 1e4, 15e3, 2e4, 3e4, 5e4, 1e5, 3e5, 5e5, 1e6, 1000001],
     eBayTab = $("#eBay-tab"),
     HelpdeskTab = $("#Helpdesk-tab");
 
@@ -69,13 +54,13 @@ function setPacketsPrices(e) {
         $("#annualy_starter .pricing-change").text(pricesAnnualyStarter[e]),
         $("#annualy_profesional .pricing-change").text(pricesAnnualyProfesional[e]), 
         $("#annualy_agency .pricing-change").text(pricesAnnualyAgency[e]),
-        //
-        $("#monthly_starter .pricing-change.was").text(pricesMonthlyStarter_was[e]), 
-        $("#monthly_profesional .pricing-change.was").text(pricesMonthlyProfesional_was[e]), 
-        $("#monthly_agency .pricing-change.was").text(pricesMonthlyAgency_was[e]),
-        $("#annualy_starter .pricing-change.was").text(pricesAnnualyStarter_was[e]),
-        $("#annualy_profesional .pricing-change.was").text(pricesAnnualyProfesional_was[e]), 
-        $("#annualy_agency .pricing-change.was").text(pricesAnnualyAgency_was[e])
+        // --- was
+        $("#monthly_starter_was .pricing-change").text(pricesMonthlyStarter_was[e]), 
+        $("#monthly_profesional_was .pricing-change").text(pricesMonthlyProfesional_was[e]), 
+        $("#monthly_agency_was .pricing-change").text(pricesMonthlyAgency_was[e]),
+        $("#annualy_starter_was .pricing-change").text(pricesAnnualyStarter_was[e]),
+        $("#annualy_profesional_was .pricing-change").text(pricesAnnualyProfesional_was[e]), 
+        $("#annualy_agency_was .pricing-change").text(pricesAnnualyAgency_was[e])
 }
 $(".pricing-main-tab").on("click", function() {
     switch ($(this).attr("id")) {
@@ -86,6 +71,18 @@ $(".pricing-main-tab").on("click", function() {
             $("#sales-slider").show()
     }
 }), 
+pricesMonthlyStarter = [16,25,39,60,79,105,132,180,"Contact Us","Contact Us","Contact Us","Contact Us","Contact Us"],
+pricesMonthlyStarter_was = [20,31,49,75,99,131,165,225, "Contact Us","Contact Us","Contact Us","Contact Us","Contact Us"],
+pricesMonthlyProfesional = [20,38,52,79,113,140,172,"Contact Us","Contact Us","Contact Us","Contact Us","Contact Us","Contact Us"],
+pricesMonthlyProfesional_was = [25,48,65,99,141,175,215,"Contact Us","Contact Us","Contact Us","Contact Us","Contact Us","Contact Us"],
+pricesMonthlyAgency = [25,47,65,100,140,172,220,"Contact Us","Contact Us","Contact Us","Contact Us","Contact Us","Contact Us"],
+pricesMonthlyAgency_was = [31,59,81,125,175,215,275,"Contact Us","Contact Us","Contact Us","Contact Us","Contact Us","Contact Us"],
+pricesAnnualyStarter = [12,19,29,45,59,79,99,"Contact Us", "Contact Us", "Contact Us", "Contact Us", "Contact Us"],
+pricesAnnualyStarter_was = [20,32,48,75,98,132,165,"Contact Us", "Contact Us", "Contact Us", "Contact Us", "Contact Us"],
+pricesAnnualyProfesional = [15,29,39,59,85,105,129,"Contact Us", "Contact Us", "Contact Us", "Contact Us", "Contact Us"],
+pricesAnnualyProfesional_was = [25,48,65,98,142,175,215,"Contact Us", "Contact Us", "Contact Us", "Contact Us", "Contact Us"],
+pricesAnnualyAgency = [19,35,49,75,105,129,165, "Contact Us",  "Contact Us",  "Contact Us",   "Contact Us",  "Contact Us", "Contact Us"],
+pricesAnnualyAgency_was = [32,58,82,125,175,215,275, "Contact Us",  "Contact Us",  "Contact Us",   "Contact Us",  "Contact Us", "Contact Us"],
 
 HelpdeskTab.is(".w--current") && (null), $(function() {
     $slider = $("#slider").slider({
@@ -112,15 +109,15 @@ HelpdeskTab.is(".w--current") && (null), $(function() {
                   $(curr).add(mo).add(bill).hide();
                   $(price).addClass('c');
                   $(chat).css({'display' : 'block'}); 
-                  $(".pricing-change.was").hide();
+                  $(".price.was").hide();
                   break; default:
                   $(curr).add(mo).add(bill).attr('style', "");
                   $(price).removeClass('c');
                   $(chat).hide();
-                  $(".pricing-change.was").show();
+                  $(".price.was").show();
               };
-          	});
-            // -- end hide show currency/ links
+          	}); 
+            // -- end hide show currency/ links 
         }
     }), 
     $("#amount").text(flag_text),
