@@ -85,7 +85,6 @@ pricesAnnualyAgency = [19,35,49,75,105,129,165, "Contact Us",  "Contact Us",  "C
 pricesAnnualyAgency_was = [32,58,82,125,175,215,275, "Contact Us",  "Contact Us",  "Contact Us",   "Contact Us",  "Contact Us", "Contact Us"],
 
 HelpdeskTab.is(".w--current") && (null), $(function() {
-	if($(".ui-slider-handle:first").length > 0){
 		$slider = $("#slider").slider({
 			range: "min",
 			step: 1e-4,
@@ -125,7 +124,6 @@ HelpdeskTab.is(".w--current") && (null), $(function() {
 		// set default to 3k
 		$slider.slider('value', slider_value),
 		$slider.slider('option', 'slide')(null, { value: $slider.slider('value') });
-	}
 }), $(document).ready(function() {
     $(".pricing-faq--question").on("click", function() {
         $(this).toggleClass("active")
