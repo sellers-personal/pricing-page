@@ -85,45 +85,47 @@ pricesAnnualyAgency = [19,35,49,75,105,129,165, "Contact Us",  "Contact Us",  "C
 pricesAnnualyAgency_was = [32,58,82,125,175,215,275, "Contact Us",  "Contact Us",  "Contact Us",   "Contact Us",  "Contact Us", "Contact Us"],
 
 HelpdeskTab.is(".w--current") && (null), $(function() {
-    $slider = $("#slider").slider({
-        range: "min",
-        step: 1e-4,
-        max: sliderAmountMap.length - 1,
-        slide: function(e, n) {
-            var t = Math.floor(n.value);
-            setPrice(sliderAmountMap[t]), setPacketsPrices(t);
-            var a = $(this).find(".ui-slider-handle:first").position(),
-                i = parseInt(a.left);
-            //const s = window.matchMedia("(max-width: 767px)");
-            //s.matches ? $(".amount").css("margin-left", i + "px") : s.matches || $(".amount").css("margin-left", i /*- 63*/ + "px");
-            $(".amount").css("margin-left", maxTooltipMargin(i) + "px");
-            // -- hide and show currency/ links for "Contact US"
-            $('#price-key').each(function(){
-              var curr = $('.pricing-currency'),
-                  mo = $('.pricing-per-month-span'),
-                  bill = $('.billed'),
-                  chat = $('.pricing-chat-link'),
-                  price = $('.pricing-change');
-              switch ($(this).text()){
-                case ("Contact Us"):
-                  $(curr).add(mo).add(bill).hide();
-                  $(price).addClass('c');
-                  $(chat).css({'display' : 'block'}); 
-                  $(".price.was").hide();
-                  break; default:
-                  $(curr).add(mo).add(bill).attr('style', "");
-                  $(price).removeClass('c');
-                  $(chat).hide();
-                  $(".price.was").show();
-              };
-          	}); 
-            // -- end hide show currency/ links 
-        }
-    }), 
-    $("#amount").text(flag_text),
-  // set default to 3k
-  $slider.slider('value', slider_value),
-  $slider.slider('option', 'slide')(null, { value: $slider.slider('value') });
+	if($(".ui-slider-handle:first").length > 0){
+		$slider = $("#slider").slider({
+			range: "min",
+			step: 1e-4,
+			max: sliderAmountMap.length - 1,
+			slide: function(e, n) {
+				var t = Math.floor(n.value);
+				setPrice(sliderAmountMap[t]), setPacketsPrices(t);
+				var a = $(this).find(".ui-slider-handle:first").position(),
+					i = parseInt(a.left);
+				//const s = window.matchMedia("(max-width: 767px)");
+				//s.matches ? $(".amount").css("margin-left", i + "px") : s.matches || $(".amount").css("margin-left", i /*- 63*/ + "px");
+				$(".amount").css("margin-left", maxTooltipMargin(i) + "px");
+				// -- hide and show currency/ links for "Contact US"
+				$('#price-key').each(function(){
+				var curr = $('.pricing-currency'),
+					mo = $('.pricing-per-month-span'),
+					bill = $('.billed'),
+					chat = $('.pricing-chat-link'),
+					price = $('.pricing-change');
+				switch ($(this).text()){
+					case ("Contact Us"):
+					$(curr).add(mo).add(bill).hide();
+					$(price).addClass('c');
+					$(chat).css({'display' : 'block'}); 
+					$(".price.was").hide();
+					break; default:
+					$(curr).add(mo).add(bill).attr('style', "");
+					$(price).removeClass('c');
+					$(chat).hide();
+					$(".price.was").show();
+				};
+				}); 
+				// -- end hide show currency/ links 
+			}
+		}), 
+		$("#amount").text(flag_text),
+		// set default to 3k
+		$slider.slider('value', slider_value),
+		$slider.slider('option', 'slide')(null, { value: $slider.slider('value') });
+	}
 }), $(document).ready(function() {
     $(".pricing-faq--question").on("click", function() {
         $(this).toggleClass("active")
